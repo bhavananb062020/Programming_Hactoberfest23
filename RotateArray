@@ -1,0 +1,40 @@
+public class RotateArray {
+    public static void rotateLeft(int[] arr, int positions) {
+        int length = arr.length;
+        positions = positions % length; // Handle cases where positions > length
+
+        int[] temp = new int[positions];
+        
+        // Copy the first 'positions' elements to a temporary array
+        for (int i = 0; i < positions; i++) {
+            temp[i] = arr[i];
+        }
+
+        // Shift the remaining elements to the left
+        for (int i = positions; i < length; i++) {
+            arr[i - positions] = arr[i];
+        }
+
+        // Copy the elements from the temporary array to the end of the original array
+        for (int i = 0; i < positions; i++) {
+            arr[length - positions + i] = temp[i];
+        }
+    }
+
+    public static void main(String[] args) {
+        int[] arr = {1, 2, 3, 4, 5};
+        int positions = 2; // Rotate left by 2 positions
+
+        System.out.println("Original Array: ");
+        for (int num : arr) {
+            System.out.print(num + " ");
+        }
+
+        rotateLeft(arr, positions);
+
+        System.out.println("\nRotated Array: ");
+        for (int num : arr) {
+            System.out.print(num + " ");
+        }
+    }
+}
