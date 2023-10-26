@@ -1,0 +1,20 @@
+public class MaxNumberInArray {
+    public static int findMax(int[] arr) {
+        int max = arr[0]; // Assume the first element is the maximum
+
+        for (int i = 1; i < arr.length; i++) {
+            if (arr[i] > max) {
+                max = arr[i];
+            }
+        }
+
+        return max;
+    }
+
+    public static void main(String[] args) {
+        int[] arr = {5, 8, 2, 10, 15, 7, 1};
+        int maxNumber = findMax(arr);
+
+        System.out.println("Maximum number in the array: " + maxNumber);
+    }
+}
