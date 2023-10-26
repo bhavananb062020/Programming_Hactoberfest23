@@ -1,0 +1,30 @@
+import java.util.HashSet;
+
+public class FindRepeatingElements {
+    public static void findRepeatingElements(int[] arr) {
+        HashSet<Integer> set = new HashSet<>();
+        HashSet<Integer> duplicates = new HashSet<>();
+
+        for (int num : arr) {
+            if (!set.add(num)) {
+                // If 'num' is already in the 'set', it's a duplicate.
+                duplicates.add(num);
+            }
+        }
+
+        if (duplicates.isEmpty()) {
+            System.out.println("No repeating elements found.");
+        } else {
+            System.out.print("Repeating elements: ");
+            for (int num : duplicates) {
+                System.out.print(num + " ");
+            }
+            System.out.println();
+        }
+    }
+
+    public static void main(String[] args) {
+        int[] arr = {1, 2, 3, 2, 4, 5, 4, 6, 7};
+        findRepeatingElements(arr);
+    }
+}
